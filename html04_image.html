@@ -1,0 +1,80 @@
+<!--
+이미지 삽입
+: <img>
+(닫는 태그(</img>)는 필요 없다.)
+: 파일의 경로는 src라는 속성의 속성 값으로 지정한다.
+: 절대 파일 경로, 상대 파일 경로 두 방식을 이용해 이미지를 갖고 올 수 있다.
+(절대 파일 경로는 각 드라이브 부터 시작한다.)
+(상대 파일 경로는 현재 내 디렉토리 위치를 기준으로 한다.)
+(../ 하면 '한 단계 위로 올라간다' 라는 의미이다.)
+(./ 은 '현재 위치' 라는 의미이다.)
+Ex)./../sample/image/img01.png
+
+width
+: <img src = "절대 위치 또는 상대 위치" width = "숫자 px 또는 숫자 %">
+: 너비와 관련된 속성
+: width값만 건드리면 브라우저에서 자동으로 height도 비율을 맞춰서 줄인다.
+: 특정 픽셀 값이 아닌 %로 값을 주면 브라우저 크기에 맞춰 크기가 변한다.
+: 특정 픽셀 값으로 주면 크기가 고정된다.
+
+height
+: <img src = "절대 위치 또는 상대 위치" height = "숫자 px 또는 숫자 %">
+: 높이와 관련된 속성
+: height값만 건드리면 브라우저에서 자동으로 width도 비율 맞춰서 줄인다.
+: 특정 픽셀 값이 아닌 %로 값을 주면 브라우저 크기에 맞춰 크기가 변한다.
+: 특정 픽셀 값으로 주면 크기가 고정된다.
+
+width와 height는 같이 설정할 수 있으며,
+둘 중 하나는 가변으로, 하나는 고정으로 설정할 수도 있다.
+둘 다 가변 또는 고정으로 설정도 가능하다.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image태그</title>
+</head>
+<body>
+    <h1>img</h1>
+    <!-- 절대 파일 위치 -->
+    <img src = "E:\WorkSpace\UI\sample\image\img01.png" width = "200px">
+    <!-- 상대 파일 위치(현재 내 위치 기준) -->
+    <img src = "../sample/image/img01.png" width = "200px">
+
+    <hr>
+    <h3>width와 height 속성</h3>
+    <h4>고정 크기</h4>
+    <img src = "../sample/image/img02.png" width = "200px" height = "150px">
+    <img src = "../sample/image/img02.png" width = "200px">
+    <img src = "../sample/image/img01.png" width = "100px" height = "100px">
+    <img src = "../sample/image/img01.png" height = "200px">
+
+    <h4>가변 크기</h4>
+    <img src = "../sample/image/img02.png" width = "15%">
+    <img src = "../sample/image/img02.png" width = "15%" height = "10%">
+    <img src = "../sample/image/img01.png" width = "200px" height = "15%">
+    <img src = "../sample/image/img01.png" width = "15%" height = "200px">
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

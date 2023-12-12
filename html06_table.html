@@ -1,0 +1,179 @@
+<!-- 
+표를 만드는 태그
+
+1) <table>[테이블명]</table>
+: 기본적인 표를 생성해주는 태그
+: 경계선이 없는 표가 생성된다.
+(border 속성에 속성 값을 넣어주면 뭔가 .같은게 보이는게 그게 표 경계)
+: 화면에서 아무것도 보이지 않더라도 일단 생성은 된 것이다.
+([]부분은 생략 가능)
+
+2) <tr></tr>
+: 표의 행을 나타내는 태그
+
+3) <th>[제목]</th>
+: 표의 제목 셀을 나타내는 태그
+: 표의 열을 나타낸다.
+([]부분은 생략 가능)
+
+4) <td>[셀에 들어갈 내용]</td>
+: 표의 일반 셀을 나타내는 태그
+: 만들어진 표의 행, 열에 들어갈 데이터
+([]부분은 생략 가능)
+: tr태그, th태그 없어도 쓸 수 있으나 딱 셀 내용 크기만큼의 칸만 가진다.
+
+주요 태그를 사용한 테이블 생성
+
+<col width = "값">
+: 컬럼의 너비를 값만큼으로 설정한다.
+: <colgroup></colgroup>으로 묶어준다.
+
+<thead>
+: 브라우저가 제목으로 인식해 제일 윗부분으로 본다.
+: 안에서 tr태그, th태그, td태그를 사용해 표를 만든다.
+
+<tbody>
+: 브라우저가 내용부분으로 인식해 중간 부분으로 본다.
+: 안에서 tr태그, th태그, td태그를 사용해 표를 만든다.
+
+<tfoot>
+: 브라우저가 종료부분으로 인식해 마지막 부분으로 본다.
+: 안에서 tr태그, th태그, td태그를 사용해 표를 만든다.
+
+==> 기능적으로 셋은 큰 차이가 없고, 브라우저가 구분하는 용도이다.
+==> 그래서 tfoot을 맨 위에 쓰고, thead를 제일 마지막에 써도
+    브라우저는 thead를 맨 먼저 화면에 보여준다.
+
+테이블 셀 병합
+: td태그의 속성을 이용한다.
+: 정확히는 td 태그끼리 자리를 뺏는 개념이다.
+
+1) colspan 속성
+: colspan = "합쳐서 만들어질 총 칸 수"
+: 열을 합치기
+(옆쪽 합치기)
+
+2) rowspan 속성
+: rowspan = "합쳐서 만들어질 총 칸 수"
+: 행을 합치기
+(아래 합치기)
+
+
+
+
+
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블(표)</title>
+</head>
+<body>
+    <h2>기본 테이블 만들기</h2>
+    <table border = "1"> 표
+        <tr>  <!-- 1행 생성 -->
+            <th>컬럼1</th> <!-- 1열 생성 -->
+            <th>컬럼2</th> <!-- 2열 생성 -->
+        </tr>
+        <tr> <!-- 2행 생성 -->
+            <td>1</td> <!-- 데이터 삽입 -->
+            <td>2</td> <!-- 데이터 삽입 -->
+        </tr>
+        <tr> <!-- 3행 생성 -->
+            <td>3</td> <!-- 데이터 삽입 -->
+            <td>4</td> <!-- 데이터 삽입 -->
+            <td>5</td> <!-- 데이터 삽입 -->
+        </tr>    
+    </table>
+
+    <h2>주요 태그를 사용해 테이블 생성</h2>
+    <table border = "1">
+        <caption>테이블 제목</caption>
+        <colgroup>
+            <col width = "100px">
+            <col width = "200px">
+            <col width = "300px">
+        </colgroup>
+        <thead style="background-color: burlywood;">
+            <th>컬럼01</th> <!-- 1열 생성 -->
+            <th>컬럼02</th> <!-- 2열 생성 -->
+            <th>컬럼03</th> <!-- 3열 생성 -->
+        </thead>
+        <tbody>
+            <tr> <!-- 1행 생성 -->
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr> <!-- 2행 생성 -->
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr> <!-- 3행 생성 -->
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+            </tr>
+        </tbody>
+        <tfoot style="background-color: coral;">
+            <tr> <!-- 4행 생성 -->
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h2>테이블 셀 병합</h2>
+    <!-- 테이블 셀 병합 -->
+    <table border = "1">
+        <caption>병합 테이블</caption>
+        <thead style = "background-color: pink;">
+            <tr>
+                <th>컬럼01</th>
+                <th>컬럼02</th>
+                <th>컬럼03</th>
+                <th>컬럼04</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">1(세로합치기)</td> <!-- 아래 row의 공간을 뺏으면서 하나씩 데이터가 밀려난다. -->
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td colspan="2">5(가로 합치기)</td>
+                <td>6</td>
+                <td>7</td> <!-- rowspan, colspan으로 공간을 뺏기고 밀려난다. -->
+                <td>8</td> <!-- rowspan, colspan으로 공간을 뺏기고 밀려난다. -->
+            </tr>
+        </tbody>
+        <tfoot style="background-color: rgb(0, 255, 106);">
+            <tr>
+                <td colspan="4">9</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
