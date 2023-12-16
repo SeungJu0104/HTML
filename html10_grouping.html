@@ -1,0 +1,95 @@
+<!--
+시멘틱 구조 태그
+: 사람 기준에서는 어떠한 용도로 쓸 목적을 갖고 div태그로 구조를 나눴지만,
+컴퓨터 기준에서는 해당 div태그가 어떤 용도로 쓸 것인지 분별할 수 없기 때문에,
+컴퓨터도 알 수 있도록 특정 태그에 의미를 부여해서 쓰는 것이 시멘틱 구조 태그이다.
+ex) <header>, <nav>, <aside> 등
+
+: <시멘틱 구조 태그명> 내용 </시멘틱 구조 태그명>
+: <div id = "시멘틱 구조 태그명"> 내용 </div>
+
+일반적으로 
+header : 제목, 로고, 아이콘 등
+nav : 검색, 메뉴 등
+section : 주제별 컨텐츠 등
+article : 독립적으로 사용하는 내용 등
+aside : 광고 등
+footer : 저자, 연락처, 주소 등
+용도로 쓰지만, 사실 이외의 내용을 쓰더라도 전혀 문제 없다.
+
+===> 시멘틱 구조 태그는 사용 안해도 전혀 문제가 없지만,
+    레이아웃 구조 용어는 어느정도 알아놔야한다.
+
+
+CSS 작성
+<style type = "text/css">
+(type 생략해도 CSS가 작동하나, 혹시 모를 문제를 대비해 명확하게 선언)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>div 태그 이용한 레이아웃 작성</title>
+    <style type="text/css">
+    /* css 작성*/
+    div{/*div태그 전체에 적용시킬 내용*/
+        border: 1px dashed red; /*경계선 설정*/
+        margin: 10px; /*바깥쪽 여백 설정*/
+    }
+    #body{/*id가 body인 태그에 적용한다.*/
+        height: 400px; /*고정*/
+    }
+    #left{/*id가 left인 태그에 적용한다.*/
+        width: 65%; /*가변*/
+        height: 90%;
+        float: left; /*설정한 방향으로 공간을 붙인다.*/
+    }
+    #right{/*id가 right인 태그에 적용한다.*/
+        width: 25%;
+        height: 90%;
+        float: right; /*설정한 방향으로 공간을 붙인다.*/
+    }
+
+
+/* div 태그로 레이아웃 작성 */
+    </style>
+</head>
+<body>
+    <div id = "header">
+        <h1>제목</h1>
+        <div>
+            <span><a href="">메뉴1</a></span>
+            <span><a href="">메뉴2</a></span>
+            <span><a href="">메뉴3</a></span>
+            <span><a href="">메뉴4</a></span>
+        </div>
+    </div>
+    <div id="body">
+        <div id="left">
+            <p>왼쪽</p>
+        </div>
+        <div id = "right">
+            <p>오른쪽</p>
+            <div id="login">
+                <form>
+                    ID: <input type="text" size="5"><br>
+                    PW: <input type="password" size="5"><br>
+                </form>
+            </div>
+            <div id="banner">광고</div>
+        </div>
+    </div>
+    <div id="footer">
+        copyright &copy; all rights rserved...
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+
